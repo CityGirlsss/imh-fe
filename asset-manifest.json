@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/imh-fe/static/js/main.21c1d5a7.js",
+    "static/js/453.06c7bcb2.chunk.js": "/imh-fe/static/js/453.06c7bcb2.chunk.js",
+    "index.html": "/imh-fe/index.html",
+    "main.21c1d5a7.js.map": "/imh-fe/static/js/main.21c1d5a7.js.map",
+    "453.06c7bcb2.chunk.js.map": "/imh-fe/static/js/453.06c7bcb2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.21c1d5a7.js"
+  ]
+}
