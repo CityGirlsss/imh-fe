@@ -89,12 +89,12 @@ function CafeForm() {
       cafe_location_latitude: cafe.lat,
       cafe_location_longitude: cafe.lon,
       start_date: operation.dates[0],
-      end_data: operation.dates[1],
+      end_date: operation.dates[1],
       product_list: operation.selectGifts,
     };
     const storageLength = window.localStorage.length;
     window.localStorage.setItem(
-      JSON.stringify(storageLength + 1),
+      `cafe_${storageLength + 1}`,
       JSON.stringify(data),
     );
     navigate(`/`);
