@@ -7,10 +7,27 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 function List({ cafes }) {
+  const [cafeData, setCafeData] = useState([]);
+  useEffect(() => {
+    const loadCafeData = () => {
+      const data = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key.startsWith("cafe")) {
+          const value = JSON.parse(localStorage.getItem(key));
+          data.push(value);
+        }
+      }
+      setCafeData(data);
+    };
+
+    loadCafeData();
+  }, []);
+
   return (
     <TableContainer>
       <Table size="sm">
@@ -22,11 +39,13 @@ function List({ cafes }) {
           </Tr>
         </Thead>
         <Tbody>
-          {cafes.cafes.map((cafe) => (
+          {cafeData.map((cafe) => (
             <Tr key={cafe.key}>
-              <Td>{cafe.name}</Td>
-              <Td>{cafe.date}</Td>
-              <Td>{cafe.location}</Td>
+              <Td>{cafe.user_name}</Td>
+              <Td>
+                {cafe.start_date} ~ {cafe.end_date}
+              </Td>
+              <Td>{cafe.cafe_name}</Td>
             </Tr>
           ))}
         </Tbody>
